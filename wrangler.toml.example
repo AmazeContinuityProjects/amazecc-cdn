@@ -1,0 +1,22 @@
+name = "amazecc-cdn"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[[kv_namespaces]]
+binding = "FACULTY_IMAGES"
+id = "<YOUR_FACULTY_IMAGES_KV_NAMESPACE_ID>"
+
+[[routes]]
+pattern = "cdn.amazecc.com"
+custom_domain = true
+
+[vars]
+CACHE_WORKER_BASE = "https://cache.amazecc.com"
+SUPABASE_URL = "https://blfxhlmpvdhcpdwgrffr.supabase.co"
+SUPABASE_STORAGE_PATH = "/storage/v1/object/public"
+DEFAULT_BUCKET = "images"
+WP_BASE = "https://chennai.vit.ac.in"
+EDGE_CACHE_TTL = "2592000"
+BROWSER_CACHE_TTL = "604800"
+NOT_FOUND_CACHE_TTL = "60"
