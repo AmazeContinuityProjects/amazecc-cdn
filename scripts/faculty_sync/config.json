@@ -1,0 +1,34 @@
+{
+  "faculty_sync": {
+    "version": "1.0.0",
+    "description": "Incremental faculty sync for directorycc.vit.ac.in and chennai.vit.ac.in with point-in-time restore",
+    "directorycc": {
+      "base_url": "https://directorycc.vit.ac.in/api/faculty/",
+      "probe_buffer": 600,
+      "recheck_invalid_sample": 200,
+      "concurrency": 15,
+      "request_timeout": 25,
+      "max_retries": 6,
+      "backoff_base": 1.7
+    },
+    "chennai": {
+      "base": "https://chennai.vit.ac.in",
+      "wp_types_endpoint": "/wp-json/wp/v2/types",
+      "per_page": 100,
+      "concurrency": 12,
+      "request_timeout": 25,
+      "max_retries": 6,
+      "backoff_base": 1.7,
+      "resolve_images": true,
+      "skip_types": [
+        "post", "page", "attachment", "nav_menu_item", "wp_block", "wp_template",
+        "wp_template_part", "wp_navigation", "wp_font_family", "wp_font_face",
+        "elementor_library", "elementskit_content"
+      ]
+    },
+    "state": {
+      "root": "scripts/faculty_sync/state",
+      "keep_last_runs": 200
+    }
+  }
+}
